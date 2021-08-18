@@ -3,6 +3,8 @@ package com.example.php_connection;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
 //        mEditTextName = (EditText)findViewById(R.id.editText_main_name);
 //        mEditTextCountry = (EditText)findViewById(R.id.editText_main_country);
@@ -199,11 +204,10 @@ public class MainActivity extends AppCompatActivity {
     private void showResult(){
 
         String TAG_JSON="webnautes";
-        String TAG_NUM = "UserNum";
-        String TAG_ID = "UserId";
-        String TAG_NAME = "UserName";
-        String TAG_STATUS ="UserStatus";
-        String TAG_Photo = "UserPhoto";
+        String TAG_ID = "userId";
+        String TAG_NAME = "userName";
+        String TAG_STATUS ="userStatus";
+        String TAG_Photo = "userPhoto";
 
 
         try {
@@ -214,7 +218,6 @@ public class MainActivity extends AppCompatActivity {
 
                 JSONObject item = jsonArray.getJSONObject(i);
 
-                String num = item.getString(TAG_NUM);
                 String id = item.getString(TAG_ID);
                 String name = item.getString(TAG_NAME);
                 String status = item.getString(TAG_STATUS);
@@ -222,7 +225,6 @@ public class MainActivity extends AppCompatActivity {
 
                 PersonalData personalData = new PersonalData();
 
-                personalData.setMember_num(num);
                 personalData.setMember_id(id);
                 personalData.setMember_name(name);
                 personalData.setMember_status(status);

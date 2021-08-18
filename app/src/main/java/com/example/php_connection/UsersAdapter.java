@@ -23,7 +23,6 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.CustomViewHo
     }
 
     class CustomViewHolder extends RecyclerView.ViewHolder {
-        protected TextView num;
         protected TextView id;
         protected TextView name;
         protected TextView status;
@@ -32,7 +31,6 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.CustomViewHo
 
         public CustomViewHolder(View view) {
             super(view);
-            this.num = (TextView) view.findViewById(R.id.textView_list_num);
             this.id = (TextView) view.findViewById(R.id.textView_list_id);
             this.name = (TextView) view.findViewById(R.id.textView_list_name);
             this.status = (TextView) view.findViewById(R.id.textView_list_status);
@@ -52,7 +50,6 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.CustomViewHo
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder viewholder, int position) {
 
-        viewholder.num.setText(mList.get(position).getMember_num());
         viewholder.id.setText(mList.get(position).getMember_id());
         viewholder.name.setText(mList.get(position).getMember_name());
         viewholder.status.setText(mList.get(position).getMember_status());
